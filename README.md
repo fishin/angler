@@ -1,6 +1,7 @@
 angler
 ======
 
+[![Build Status](https://secure.travis-ci.org/fishin/angler.svg)](http://travis-ci.org/fishin/angler)
 [![NPM version](https://badge.fury.io/js/angler.svg)](http://badge.fury.io/js/angler)
 [![devDependency Status](https://david-dm.org/fishin/angler/dev-status.svg)](https://david-dm.org/fishin/angler#info=devDependencies)
 
