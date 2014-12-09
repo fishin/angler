@@ -1,3 +1,4 @@
+var Code = require('code');
 var Lab = require('lab');
 var Angler = require('../lib/index');
 
@@ -9,9 +10,7 @@ var internals = {
 };
 
 var lab = exports.lab = Lab.script();
-var expect = Lab.expect;
-var before = lab.before;
-var after = lab.after;
+var expect = Code.expect;
 var describe = lab.describe;
 var it = lab.it;
 
@@ -27,7 +26,7 @@ describe('angler', function () {
             email: 'lloyd.benson@gmail.com'
         };
         var createAngler = angler.createAngler(config);
-        expect(createAngler.id).to.exist;
+        expect(createAngler.id).to.exist();
         expect(createAngler.name).to.equal('lloyd');
         expect(createAngler.displayName).to.equal('Lloyd Benson1');
         expect(createAngler.email).to.equal('lloyd.benson@gmail.com');
@@ -42,7 +41,7 @@ describe('angler', function () {
             email: 'ben.acker@gmail.com'
         };
         var createAngler = angler.createAngler(config);
-        expect(createAngler.id).to.exist;
+        expect(createAngler.id).to.exist();
         expect(createAngler.name).to.equal('backer');
         expect(createAngler.displayName).to.equal('Ben Acker');
         expect(createAngler.email).to.equal('ben.acker@gmail.com');
@@ -52,7 +51,7 @@ describe('angler', function () {
     it('getAnglerByName lloyd', function (done) {
 
         var getAngler = angler.getAnglerByName('lloyd');
-        expect(getAngler.id).to.exist;
+        expect(getAngler.id).to.exist();
         expect(getAngler.name).to.equal('lloyd');
         expect(getAngler.displayName).to.equal('Lloyd Benson1');
         expect(getAngler.email).to.equal('lloyd.benson@gmail.com');
@@ -63,7 +62,7 @@ describe('angler', function () {
 
         var angler_id = angler.getAnglerByName('lloyd').id;
         var getAngler = angler.getAngler(angler_id);
-        expect(getAngler.id).to.exist;
+        expect(getAngler.id).to.exist();
         expect(getAngler.name).to.equal('lloyd');
         expect(getAngler.displayName).to.equal('Lloyd Benson1');
         expect(getAngler.email).to.equal('lloyd.benson@gmail.com');
@@ -75,7 +74,7 @@ describe('angler', function () {
         var getAngler = angler.getAnglerByName('lloyd');
         getAngler.displayName = 'Lloyd Benson';
         var updateAngler = angler.updateAngler(getAngler);
-        expect(updateAngler.id).to.exist;
+        expect(updateAngler.id).to.exist();
         expect(updateAngler.name).to.equal('lloyd');
         expect(updateAngler.displayName).to.equal('Lloyd Benson');
         expect(updateAngler.email).to.equal('lloyd.benson@gmail.com');
