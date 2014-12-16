@@ -1,6 +1,6 @@
 {
   "name": "angler",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "angler ======",
   "main": "index.js",
   "scripts": {
@@ -18,10 +18,10 @@
   "homepage": "https://github.com/fishin/angler",
   "dependencies": {
     "bell": "1.x.x",
-    "hapi": "6.x.x",
+    "hapi": "8.x.x",
     "hapi-auth-cookie": "1.x.x",
     "hoek": "2.x.x",
-    "joi": "4.x.x",
+    "joi": "5.x.x",
     "pail": "git+https://github.com/fishin/pail"
   },
   "devDependencies": {
