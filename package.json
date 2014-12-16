@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/fishin/angler",
   "dependencies": {
-    "bell": "1.x.x",
+    "bell": "2.x.x",
     "hapi": "8.x.x",
-    "hapi-auth-cookie": "1.x.x",
+    "hapi-auth-cookie": "2.x.x",
     "hoek": "2.x.x",
     "joi": "5.x.x",
     "pail": "git+https://github.com/fishin/pail"
