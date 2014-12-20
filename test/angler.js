@@ -60,8 +60,8 @@ describe('angler', function () {
 
     it('getAngler lloyd', function (done) {
 
-        var angler_id = angler.getAnglerByName('lloyd').id;
-        var getAngler = angler.getAngler(angler_id);
+        var anglerId = angler.getAnglerByName('lloyd').id;
+        var getAngler = angler.getAngler(anglerId);
         expect(getAngler.id).to.exist();
         expect(getAngler.name).to.equal('lloyd');
         expect(getAngler.displayName).to.equal('Lloyd Benson1');
