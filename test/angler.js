@@ -72,8 +72,10 @@ describe('angler', function () {
     it('updateAngler lloyd', function (done) {
 
         var getAngler = angler.getAnglerByName('lloyd');
-        getAngler.displayName = 'Lloyd Benson';
-        var updateAngler = angler.updateAngler(getAngler);
+        var payload = {
+            displayName: 'Lloyd Benson'
+        }
+        var updateAngler = angler.updateAngler(getAngler.id, payload);
         expect(updateAngler.id).to.exist();
         expect(updateAngler.name).to.equal('lloyd');
         expect(updateAngler.displayName).to.equal('Lloyd Benson');
