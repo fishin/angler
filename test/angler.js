@@ -4,7 +4,7 @@ var Angler = require('../lib/index');
 
 var internals = {
     defaults: {
-        dirpath: '/tmp/testangler',
+        dirPath: '/tmp/testangler',
         configFile: 'config.json'
     }
 };
