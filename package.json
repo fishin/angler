@@ -3,10 +3,6 @@
   "version": "0.0.5",
   "description": "angler ======",
   "main": "index.js",
-  "scripts": {
-    "test": "lab -a code -t 100 -v -m 10000",
-    "json": "lab -a code -r json -t 100 -o lab.json -m 10000"
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/fishin/angler"
@@ -17,6 +13,13 @@
     "url": "https://github.com/fishin/angler/issues"
   },
   "homepage": "https://github.com/fishin/angler",
+  "engines": {
+    "node": ">=0.12.x"
+  },
+  "scripts": {
+    "test": "lab -a code -t 100 -v -m 10000",
+    "json": "lab -a code -r json -t 100 -o lab.json -m 10000"
+  },
   "dependencies": {
     "bell": "2.x.x",
     "hapi": "8.x.x",
