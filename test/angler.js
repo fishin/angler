@@ -18,6 +18,21 @@ var angler = new User(internals.defaults);
 
 describe('angler', function () {    
 
+
+    it('generatePassword', function (done) {
+
+        var password = angler.generatePassword();
+        expect(password.length).to.equal(8);
+        done();
+    });
+
+    it('generatePassword length', function (done) {
+
+        var password = angler.generatePassword(10);
+        expect(password.length).to.equal(10);
+        done();
+    });
+
     it('createUser lloyd', function (done) {
 
         var config = {
