@@ -21,6 +21,7 @@
     "json": "lab -a code -r json -t 100 -o lab.json -m 10000"
   },
   "dependencies": {
+    "bcrypt": "0.8.x",
     "bell": "2.x.x",
     "hapi": "8.x.x",
     "hapi-auth-cookie": "2.x.x",
