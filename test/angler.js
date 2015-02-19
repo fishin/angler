@@ -37,6 +37,7 @@ describe('angler', function () {
 
         var config = {
             name: 'lloyd',
+            type: 'local',
             displayName: 'Lloyd Benson1',
             email: 'lloyd.benson@gmail.com',
             password: 'password1'
@@ -44,6 +45,7 @@ describe('angler', function () {
         var createUser = angler.createUser(config);
         expect(createUser.id).to.exist();
         expect(createUser.name).to.equal('lloyd');
+        expect(createUser.type).to.equal('local');
         expect(createUser.displayName).to.equal('Lloyd Benson1');
         expect(createUser.email).to.equal('lloyd.benson@gmail.com');
         expect(createUser.password.length).to.equal(60);
@@ -62,15 +64,13 @@ describe('angler', function () {
 
         var config = {
             name: 'backer',
-            displayName: 'Ben Acker',
-            email: 'ben.acker@gmail.com',
-            password: 'password1'
+            type: 'github'
         };
         var createUser = angler.createUser(config);
         expect(createUser.id).to.exist();
         expect(createUser.name).to.equal('backer');
-        expect(createUser.displayName).to.equal('Ben Acker');
-        expect(createUser.email).to.equal('ben.acker@gmail.com');
+        expect(createUser.type).to.equal('github');
+        expect(createUser.password).to.not.exist();
         done();
     });
 
