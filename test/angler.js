@@ -145,4 +145,41 @@ describe('angler', function () {
         angler.deleteUser(getUser.id);
         done();
     });
+
+    it('createUser lloyd2', function (done) {
+
+        var config = {
+            name: 'lloyd2',
+            type: 'local',
+            displayName: 'Lloyd Benson',
+            email: 'lloyd.benson@gmail.com',
+            password: 'password'
+        };
+        var createUser = angler.createUser(config);
+        expect(createUser.id).to.exist();
+        expect(createUser.name).to.equal('lloyd2');
+        expect(createUser.type).to.equal('local');
+        expect(createUser.displayName).to.equal('Lloyd Benson');
+        expect(createUser.email).to.equal('lloyd.benson@gmail.com');
+        expect(createUser.password.length).to.equal(60);
+        done();
+    });
+
+    it('updateUser lloyd2', function (done) {
+
+        var getUser = angler.getUserByName('lloyd2');
+        var payload = {
+            type: 'github'
+        }
+        var updateUser = angler.updateUser(getUser.id, payload);
+        expect(updateUser.displayName).to.equal('Lloyd Benson');
+        done();
+    });
+
+    it('deleteUser lloyd2', function (done) {
+
+        var getUser = angler.getUserByName('lloyd2');
+        angler.deleteUser(getUser.id);
+        done();
+    });
 });
