@@ -79,6 +79,7 @@ describe('angler', function () {
         var getUser = angler.getUserByName('lloyd');
         expect(getUser.id).to.exist();
         expect(getUser.name).to.equal('lloyd');
+        expect(getUser.type).to.equal('local');
         expect(getUser.displayName).to.equal('Lloyd Benson1');
         expect(getUser.email).to.equal('lloyd.benson@gmail.com');
         done();
@@ -90,12 +91,13 @@ describe('angler', function () {
         var getUser = angler.getUser(anglerId);
         expect(getUser.id).to.exist();
         expect(getUser.name).to.equal('lloyd');
+        expect(getUser.type).to.equal('local');
         expect(getUser.displayName).to.equal('Lloyd Benson1');
         expect(getUser.email).to.equal('lloyd.benson@gmail.com');
         done();
     });
 
-    it('updateUser lloyd', function (done) {
+    it('updateUser lloyd displayName', function (done) {
 
         var getUser = angler.getUserByName('lloyd');
         var payload = {
@@ -106,7 +108,7 @@ describe('angler', function () {
         done();
     });
 
-    it('updateUser lloyd', function (done) {
+    it('updateUser lloyd password', function (done) {
 
         var getUser = angler.getUserByName('lloyd');
         var payload = {
