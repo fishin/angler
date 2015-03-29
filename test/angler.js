@@ -16,8 +16,7 @@ var it = lab.it;
 
 var angler = new User(internals.defaults);
 
-describe('angler', function () {    
-
+describe('angler', function () {
 
     it('generatePassword', function (done) {
 
@@ -102,7 +101,7 @@ describe('angler', function () {
         var getUser = angler.getUserByName('lloyd');
         var payload = {
             displayName: 'Lloyd Benson'
-        }
+        };
         var updateUser = angler.updateUser(getUser.id, payload);
         expect(updateUser.displayName).to.equal('Lloyd Benson');
         done();
@@ -113,7 +112,7 @@ describe('angler', function () {
         var getUser = angler.getUserByName('lloyd');
         var payload = {
             password: 'password'
-        }
+        };
         var updateUser = angler.updateUser(getUser.id, payload);
         expect(updateUser.password).to.not.equal(getUser.password);
         done();
@@ -172,7 +171,7 @@ describe('angler', function () {
         var getUser = angler.getUserByName('lloyd2');
         var payload = {
             type: 'github'
-        }
+        };
         var updateUser = angler.updateUser(getUser.id, payload);
         expect(updateUser.displayName).to.equal('Lloyd Benson');
         done();
