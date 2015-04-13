@@ -1,7 +1,7 @@
 {
   "name": "angler",
-  "version": "0.0.5",
-  "description": "angler ======",
+  "version": "0.0.6",
+  "description": "user functions for ficion",
   "main": "index.js",
   "repository": {
     "type": "git",
