@@ -2,7 +2,7 @@
   "name": "angler",
   "version": "0.0.6",
   "description": "user functions for ficion",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/fishin/angler"
