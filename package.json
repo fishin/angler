@@ -1,6 +1,6 @@
 {
   "name": "angler",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "user functions for ficion",
   "main": "lib/index.js",
   "repository": {
