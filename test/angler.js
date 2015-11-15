@@ -1,47 +1,49 @@
-var Code = require('code');
-var Lab = require('lab');
-var User = require('../lib/index');
+'use strict';
 
-var internals = {
+const Code = require('code');
+const Lab = require('lab');
+const User = require('../lib/index');
+
+const internals = {
     defaults: {
         dirPath: '/tmp/testangler',
         configFile: 'config.json'
     }
 };
 
-var lab = exports.lab = Lab.script();
-var expect = Code.expect;
-var describe = lab.describe;
-var it = lab.it;
+const lab = exports.lab = Lab.script();
+const expect = Code.expect;
+const describe = lab.describe;
+const it = lab.it;
 
-var angler = new User(internals.defaults);
+const angler = new User(internals.defaults);
 
-describe('angler', function () {
+describe('angler', () => {
 
-    it('generatePassword', function (done) {
+    it('generatePassword', (done) => {
 
-        var password = angler.generatePassword();
+        const password = angler.generatePassword();
         expect(password.length).to.equal(8);
         done();
     });
 
-    it('generatePassword length', function (done) {
+    it('generatePassword length', (done) => {
 
-        var password = angler.generatePassword(10);
+        const password = angler.generatePassword(10);
         expect(password.length).to.equal(10);
         done();
     });
 
-    it('createUser lloyd', function (done) {
+    it('createUser lloyd', (done) => {
 
-        var config = {
+        const config = {
             name: 'lloyd',
             type: 'local',
             displayName: 'Lloyd Benson1',
             email: 'lloyd.benson@gmail.com',
             password: 'password1'
         };
-        var createUser = angler.createUser(config);
+        const createUser = angler.createUser(config);
         expect(createUser.id).to.exist();
         expect(createUser.name).to.equal('lloyd');
         expect(createUser.type).to.equal('local');
@@ -51,21 +53,21 @@ describe('angler', function () {
         done();
     });
 
-    it('validatePassword lloyd', function (done) {
+    it('validatePassword lloyd', (done) => {
 
-        var hash = angler.getUserByName('lloyd').password;
-        var validate = angler.validatePassword('password', hash);
+        const hash = angler.getUserByName('lloyd').password;
+        const validate = angler.validatePassword('password', hash);
         expect(validate).to.be.false();
         done();
     });
 
-    it('createUser backer', function (done) {
+    it('createUser backer', (done) => {
 
-        var config = {
+        const config = {
             name: 'backer',
             type: 'github'
         };
-        var createUser = angler.createUser(config);
+        const createUser = angler.createUser(config);
         expect(createUser.id).to.exist();
         expect(createUser.name).to.equal('backer');
         expect(createUser.type).to.equal('github');
@@ -73,9 +75,9 @@ describe('angler', function () {
         done();
     });
 
-    it('getUserByName lloyd', function (done) {
+    it('getUserByName lloyd', (done) => {
 
-        var getUser = angler.getUserByName('lloyd');
+        const getUser = angler.getUserByName('lloyd');
         expect(getUser.id).to.exist();
         expect(getUser.name).to.equal('lloyd');
         expect(getUser.type).to.equal('local');
@@ -84,10 +86,10 @@ describe('angler', function () {
         done();
     });
 
-    it('getUser lloyd', function (done) {
+    it('getUser lloyd', (done) => {
 
-        var anglerId = angler.getUserByName('lloyd').id;
-        var getUser = angler.getUser(anglerId);
+        const anglerId = angler.getUserByName('lloyd').id;
+        const getUser = angler.getUser(anglerId);
         expect(getUser.id).to.exist();
         expect(getUser.name).to.equal('lloyd');
         expect(getUser.type).to.equal('local');
@@ -96,67 +98,67 @@ describe('angler', function () {
         done();
     });
 
-    it('updateUser lloyd displayName', function (done) {
+    it('updateUser lloyd displayName', (done) => {
 
-        var getUser = angler.getUserByName('lloyd');
-        var payload = {
+        const getUser = angler.getUserByName('lloyd');
+        const payload = {
             displayName: 'Lloyd Benson'
         };
-        var updateUser = angler.updateUser(getUser.id, payload);
+        const updateUser = angler.updateUser(getUser.id, payload);
         expect(updateUser.displayName).to.equal('Lloyd Benson');
         done();
     });
 
-    it('updateUser lloyd password', function (done) {
+    it('updateUser lloyd password', (done) => {
 
-        var getUser = angler.getUserByName('lloyd');
-        var payload = {
+        const getUser = angler.getUserByName('lloyd');
+        const payload = {
             password: 'password'
         };
-        var updateUser = angler.updateUser(getUser.id, payload);
+        const updateUser = angler.updateUser(getUser.id, payload);
         expect(updateUser.password).to.not.equal(getUser.password);
         done();
     });
 
-    it('getUsers', function (done) {
+    it('getUsers', (done) => {
 
-        var getUsers = angler.getUsers();
+        const getUsers = angler.getUsers();
         expect(getUsers).to.be.length(2);
         done();
     });
 
-    it('validatePassword lloyd', function (done) {
+    it('validatePassword lloyd', (done) => {
 
-        var hash = angler.getUserByName('lloyd').password;
-        var validate = angler.validatePassword('password', hash);
+        const hash = angler.getUserByName('lloyd').password;
+        const validate = angler.validatePassword('password', hash);
         expect(validate).to.be.true();
         done();
     });
 
-    it('deleteUser lloyd', function (done) {
+    it('deleteUser lloyd', (done) => {
 
-        var getUser = angler.getUserByName('lloyd');
+        const getUser = angler.getUserByName('lloyd');
         angler.deleteUser(getUser.id);
         done();
     });
 
-    it('deleteUser backer', function (done) {
+    it('deleteUser backer', (done) => {
 
-        var getUser = angler.getUserByName('backer');
+        const getUser = angler.getUserByName('backer');
         angler.deleteUser(getUser.id);
         done();
     });
 
-    it('createUser lloyd2', function (done) {
+    it('createUser lloyd2', (done) => {
 
-        var config = {
+        const config = {
             name: 'lloyd2',
             type: 'local',
             displayName: 'Lloyd Benson',
             email: 'lloyd.benson@gmail.com',
             password: 'password'
         };
-        var createUser = angler.createUser(config);
+        const createUser = angler.createUser(config);
         expect(createUser.id).to.exist();
         expect(createUser.name).to.equal('lloyd2');
         expect(createUser.type).to.equal('local');
@@ -166,20 +168,20 @@ describe('angler', function () {
         done();
     });
 
-    it('updateUser lloyd2', function (done) {
+    it('updateUser lloyd2', (done) => {
 
-        var getUser = angler.getUserByName('lloyd2');
-        var payload = {
+        const getUser = angler.getUserByName('lloyd2');
+        const payload = {
             type: 'github'
         };
-        var updateUser = angler.updateUser(getUser.id, payload);
+        const updateUser = angler.updateUser(getUser.id, payload);
         expect(updateUser.displayName).to.equal('Lloyd Benson');
         done();
     });
 
-    it('deleteUser lloyd2', function (done) {
+    it('deleteUser lloyd2', (done) => {
 
-        var getUser = angler.getUserByName('lloyd2');
+        const getUser = angler.getUserByName('lloyd2');
         angler.deleteUser(getUser.id);
         done();
     });
